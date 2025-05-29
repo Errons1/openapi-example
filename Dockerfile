@@ -11,7 +11,7 @@ COPY . .
 RUN mvn clean package
 
 # Unzips .jar
-RUN unzip /app/target/*.jar
+RUN unzip /app/target/example*.jar
 
 # Makes custome JRE based upon modules the .jar files needs
 RUN java_deps=$(jdeps \
@@ -34,5 +34,5 @@ ENV JAVA_HOME=/jre
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 COPY --from=builder /customjre $JAVA_HOME
-COPY --from=builder /app/target/*.jar /app/application.jar
+COPY --from=builder /app/target/example*.jar /app/application.jar
 CMD ["java","-jar", "/app/application.jar"]
