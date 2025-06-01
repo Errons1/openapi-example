@@ -1,4 +1,4 @@
-package no.huginbird;
+package no.example;
 
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.slf4j.Slf4j;

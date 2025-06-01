@@ -40,7 +40,7 @@ build/
 
 /.idea/
 /src/main/java/.openapi-generator/
-/src/main/java/no/huginbird/generated/
+/src/main/java/no/example/generated/
 /src/main/webui/src/generated/
 /application.properties
 /src/main/webui/node/

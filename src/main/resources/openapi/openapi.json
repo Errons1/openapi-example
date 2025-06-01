@@ -6,7 +6,8 @@
   },
   "servers": [
     {
-      "url": "/api"
+      "url": "api/v1",
+      "description": "pets"
     }
   ],
   "paths": {
@@ -32,14 +33,6 @@
         "responses": {
           "200": {
             "description": "A paged array of pets",
-            "headers": {
-              "x-next": {
-                "description": "A link to the next page of responses",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -81,7 +74,14 @@
         },
         "responses": {
           "201": {
-            "description": "Null response"
+            "description": "The saved pet returned with ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetDTO"
+                }
+              }
+            }
           },
           "default": {
             "description": "unexpected error",
@@ -97,9 +97,9 @@
       }
     },
     "/pets/{petId}": {
-      "get": {
-        "summary": "Info for a specific pet",
-        "operationId": "showPetById",
+      "delete": {
+        "summary": "Delete a specific pet",
+        "operationId": "deletePetById",
         "tags": [
           "pets"
         ],
@@ -108,22 +108,15 @@
             "name": "petId",
             "in": "path",
             "required": true,
-            "description": "The id of the pet to retrieve",
+            "description": "The id of the pet to delete",
             "schema": {
-              "type": "string"
+              "type": "integer"
             }
           }
         ],
         "responses": {
-          "200": {
-            "description": "Expected response to a valid request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PetDTO"
-                }
-              }
-            }
+          "204": {
+            "description": "Successfully deleted pet item"
           },
           "default": {
             "description": "unexpected error",
@@ -174,8 +167,7 @@
         ],
         "properties": {
           "code": {
-            "type": "integer",
-            "format": "int32"
+            "type": "integer"
           },
           "message": {
             "type": "string"

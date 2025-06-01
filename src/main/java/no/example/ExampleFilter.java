@@ -1,4 +1,4 @@
-package no.huginbird;
+package no.example;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
@@ -27,7 +27,7 @@ public class ExampleFilter implements Filter {
             HttpServletRequest req = (HttpServletRequest) servletRequest;
             HttpServletResponse res = (HttpServletResponse) servletResponse;
 
-            if (!req.getRequestURI().contains("/api/") && !req.getRequestURI().contains("/assets") && !req.getRequestURI().equals("/")) {
+            if (!req.getRequestURI().contains("/api/v1/") && !req.getRequestURI().contains("/assets") && !req.getRequestURI().equals("/")) {
                 log.info("Request  Method: {} \"{}\"", req.getMethod(), req.getRequestURI());
                 req.getRequestDispatcher("/index.html").forward(req, res);
                 log.info("Response Code from Server: {}", res.getStatus());

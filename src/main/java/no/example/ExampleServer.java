@@ -1,4 +1,4 @@
-package no.huginbird;
+package no.example;
 
 import jakarta.servlet.DispatcherType;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +34,7 @@ public class ExampleServer {
         webAppContext.addFilter(new FilterHolder(new ExampleFilter(config)), "/*", EnumSet.of(DispatcherType.REQUEST));
 
         loadStaticWebUi(webAppContext);
-        webAppContext.addServlet(new ServletHolder(new ServletContainer(config)), "/api/*");
+        webAppContext.addServlet(new ServletHolder(new ServletContainer(config)), "/api/v1/*");
 
         return webAppContext;
     }

@@ -1,6 +1,6 @@
-package no.huginbird;
+package no.example;
 
-import no.huginbird.pets.PetsApiImpl;
+import no.example.pets.PetsApiImpl;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import javax.sql.DataSource;

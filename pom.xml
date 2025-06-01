@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>no.huginbird</groupId>
+    <groupId>no.example</groupId>
     <artifactId>example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -29,7 +29,7 @@
             <artifactId>jetty-ee10-webapp</artifactId>
             <version>${jetty.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
@@ -119,9 +119,9 @@
                             <generateSupportingFiles>false</generateSupportingFiles>
                             <generateModelTests>false</generateModelTests>
                             <generateApiTests>false</generateApiTests>
-                            <modelPackage>no.huginbird.generated.models</modelPackage>
-                            <apiPackage>no.huginbird.generated.api</apiPackage>
-                            <invokerPackage>no.huginbird.generated.impl</invokerPackage>
+                            <modelPackage>no.example.generated.models</modelPackage>
+                            <apiPackage>no.example.generated.api</apiPackage>
+                            <invokerPackage>no.example.generated.impl</invokerPackage>
                             <configOptions>
                                 <sourceFolder>/</sourceFolder>
                                 <interfaceOnly>true</interfaceOnly>
@@ -189,7 +189,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>no.huginbird.Main</mainClass>
+                            <mainClass>no.example.Main</mainClass>
                             <addClasspath>true</addClasspath>
                         </manifest>
                     </archive>
@@ -209,7 +209,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>no.huginbird.Main</mainClass>
+                                    <mainClass>no.example.Main</mainClass>
                                 </transformer>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                             </transformers>
